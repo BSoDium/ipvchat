@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcliffordd.a CMakeFiles/clifford.dir/src/clifford.cpp.o
+/usr/bin/ranlib libcliffordd.a

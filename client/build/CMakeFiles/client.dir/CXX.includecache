@@ -1,0 +1,68 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libs/clifford/include/clifford.hpp
+iostream
+-
+sstream
+-
+iterator
+-
+functional
+-
+vector
+-
+optional
+-
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp
+iostream
+-
+string
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+unistd.h
+-
+thread
+-
+client.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.hpp
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.hpp
+string
+-
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp
+clientConsole.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.hpp
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.hpp
+clifford.hpp
+-
+client.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.hpp
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp
+iostream
+-
+string
+-
+unistd.h
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+thread
+-
+clientConsole.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.hpp
+

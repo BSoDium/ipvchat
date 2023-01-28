@@ -1,0 +1,169 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libs/clifford/libcliffordd.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_library",
+			"add_library",
+			"install",
+			"include",
+			"target_compile_options",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"/home/bsodium/Apps/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"libs/clifford/CMakeLists.txt",
+			"libs/clifford/cmake/Install.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 623,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 30,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -fopenmp -g"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Werror"
+				},
+				{
+					"fragment" : "-std=gnu++2a"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "clifford::@f9c667cb6245232d70ee",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 5,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/install"
+		}
+	},
+	"name" : "clifford",
+	"nameOnDisk" : "libcliffordd.a",
+	"paths" : 
+	{
+		"build" : "libs/clifford",
+		"source" : "libs/clifford"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "libs/clifford/src/clifford.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"path" : "libs/clifford/src/utils.hpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

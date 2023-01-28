@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build",
+  "command": "/usr/bin/g++  -I\"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include\"  -fopenmp -g -std=gnu++11 -o CMakeFiles/client.dir/src/client.cpp.o -c \"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp\"",
+  "file": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp"
+},
+{
+  "directory": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build",
+  "command": "/usr/bin/g++  -I\"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include\"  -fopenmp -g -std=gnu++11 -o CMakeFiles/client.dir/src/clientConsole.cpp.o -c \"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp\"",
+  "file": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp"
+},
+{
+  "directory": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build",
+  "command": "/usr/bin/g++  -I\"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include\"  -fopenmp -g -std=gnu++11 -o CMakeFiles/client.dir/src/main.cpp.o -c \"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp\"",
+  "file": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp"
+},
+{
+  "directory": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford",
+  "command": "/usr/bin/g++  -I\"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src\" -I\"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include\"  -fopenmp -g -Werror -std=gnu++2a -o CMakeFiles/clifford.dir/src/clifford.cpp.o -c \"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp\"",
+  "file": "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp"
+}
+]

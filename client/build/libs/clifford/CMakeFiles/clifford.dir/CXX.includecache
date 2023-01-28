@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include/clifford.hpp
+iostream
+-
+sstream
+-
+iterator
+-
+functional
+-
+vector
+-
+optional
+-
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp
+../include/clifford.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include/clifford.hpp
+utils.hpp
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/utils.hpp
+
+/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/utils.hpp
+string
+-
+vector
+-
+

@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.10)
+project(client
+  VERSION 0.1.0 
+  LANGUAGES C CXX
+)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+
+add_subdirectory(libs)
+
+add_executable(${PROJECT_NAME})
+
+file(GLOB_RECURSE sources CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/src/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/*.hpp"
+)
+
+# Display number of source files found
+set(SOURCE_COUNT 0)
+foreach(source IN LISTS sources)
+    math(EXPR SOURCE_COUNT "${SOURCE_COUNT} + 1")
+endforeach()
+message(STATUS "Found ${SOURCE_COUNT} source files")
+
+target_sources(${PROJECT_NAME} PRIVATE ${sources})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE clifford)
