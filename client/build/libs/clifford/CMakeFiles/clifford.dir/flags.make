@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src" -I"/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include"
+CXX_INCLUDES = -I/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src -I/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/include
 
 CXX_FLAGS =  -fopenmp -g -Werror -std=gnu++2a
 

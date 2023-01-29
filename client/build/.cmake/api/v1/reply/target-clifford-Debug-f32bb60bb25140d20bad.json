@@ -98,11 +98,11 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src"
+					"path" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include"
+					"path" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/include"
 				}
 			],
 			"language" : "CXX",
@@ -124,7 +124,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/install"
+			"path" : "/usr/local"
 		}
 	},
 	"name" : "clifford",

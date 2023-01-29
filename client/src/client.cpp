@@ -23,9 +23,19 @@ void Client::setIpAddress(std::string ipAddress)
   _ipAddress = ipAddress;
 }
 
+std::string Client::getIpAddress()
+{
+  return _ipAddress;
+}
+
 void Client::setPortNumber(int portNumber)
 {
   _portNumber = portNumber;
+}
+
+int Client::getPortNumber()
+{
+  return _portNumber;
 }
 
 bool Client::connect()
@@ -44,23 +54,13 @@ bool Client::connect()
   return ::connect(_socket, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) == 0;
 }
 
-std::string Client::send(std::string message)
+void Client::send(Request request)
 {
   // Send the message to the server
+  std::string message = request.serialize();
   if (::send(_socket, message.c_str(), message.size(), ::MSG_NOSIGNAL) < 0) {
     std::cerr << "Client failed to send message" << std::endl;
-    return "";
   }
-
-  // Receive a response from the server (blocking)
-  char buffer[BUF_SIZE];
-  int bytes_received = recv(_socket, buffer, BUF_SIZE, 0);
-  if (bytes_received < 0) {
-    std::cerr << "Client failed to receive response" << std::endl;
-    return "";
-  }
-
-  return std::string(buffer, bytes_received);
 }
 
 bool Client::disconnect()
@@ -72,4 +72,21 @@ bool Client::disconnect()
 bool Client::isConnected()
 {
   return _socket > 0;
+}
+
+Request Client::receive()
+{
+  // Receive a response from the server (blocking)
+  char buf[BUF_SIZE];
+  int bytesReceived = ::recv(_socket, buf, BUF_SIZE, 0);
+  if (bytesReceived < 0) {
+    std::cerr << "Client failed to receive message" << std::endl;
+    return Request("error", {
+      {"origin", "Client"},
+      {"message", "Client failed to receive message"}
+    });
+  }
+
+  // Return the response
+  return Request(std::string(buf, bytesReceived));
 }

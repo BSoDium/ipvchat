@@ -3,14 +3,20 @@
 
 CMakeFiles/client.dir/src/client.cpp.o: ../src/client.cpp
 CMakeFiles/client.dir/src/client.cpp.o: ../src/client.hpp
+CMakeFiles/client.dir/src/client.cpp.o: ../src/request.hpp
 
 CMakeFiles/client.dir/src/clientConsole.cpp.o: ../libs/clifford/include/clifford.hpp
 CMakeFiles/client.dir/src/clientConsole.cpp.o: ../src/client.hpp
 CMakeFiles/client.dir/src/clientConsole.cpp.o: ../src/clientConsole.cpp
 CMakeFiles/client.dir/src/clientConsole.cpp.o: ../src/clientConsole.hpp
+CMakeFiles/client.dir/src/clientConsole.cpp.o: ../src/request.hpp
 
 CMakeFiles/client.dir/src/main.cpp.o: ../libs/clifford/include/clifford.hpp
 CMakeFiles/client.dir/src/main.cpp.o: ../src/client.hpp
 CMakeFiles/client.dir/src/main.cpp.o: ../src/clientConsole.hpp
 CMakeFiles/client.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/client.dir/src/main.cpp.o: ../src/request.hpp
+
+CMakeFiles/client.dir/src/request.cpp.o: ../src/request.cpp
+CMakeFiles/client.dir/src/request.cpp.o: ../src/request.hpp
 

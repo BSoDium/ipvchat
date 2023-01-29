@@ -52,7 +52,7 @@ endif()
 add_library(core::clifford STATIC IMPORTED)
 
 set_target_properties(core::clifford PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include"
 )
 
 # Load information for each installed configuration.

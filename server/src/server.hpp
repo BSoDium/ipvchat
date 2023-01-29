@@ -16,15 +16,15 @@
 #include <climits>
 #include <cstring>
 
-#include "runners.hpp"
 #include "storage.hpp"
+#include "request.hpp"
 
 const int BUF_SIZE = 1024;
 
 class Server;
 
-typedef std::vector<std::string> args_t;
-typedef std::function<std::string(Server &, args_t)> command_t;
+typedef std::function<void(args_t)> command_t;
+
 struct Command
 {
   std::string name;
@@ -53,15 +53,40 @@ private:
   int _socket;
   
   std::vector<Command> _commands = {
-      {"sendMessage", sendMessage},
-      {"listChannels", listChannels},
-      {"listMessages", listMessages},
-      {"createChannel", createChannel},
-      {"deleteChannel", deleteChannel}
+    {"send", [this](args_t args) {
+        std::string channel_id = args["channel_id"];
+        std::string user_id = args["user_id"];
+        std::string message = args["message"];
+
+        auto channel = _storage.getChannel(channel_id);
+        auto user = _storage.getUserName(user_id);
+        if (channel == nullptr)
+        {
+          return "ERROR: Channel not found";
+        }
+        if (user == "")
+        {
+          return "ERROR: User not found";
+        }
+
+        channel->addMessage(user_id, message);
+
+        Request request("message", {
+          {"channel_id", channel_id},
+          {"user_id", user_id},
+          {"message", message}
+        });
+
+        notifyClients(request);
+      }
+    },
+
   };
 
   void connectionHandler(int sock);
   void keepAlive(int sock);
+
+  void notifyClients(Request request);
 
 public:
   Server(std::string ipAddress, int portNumber);

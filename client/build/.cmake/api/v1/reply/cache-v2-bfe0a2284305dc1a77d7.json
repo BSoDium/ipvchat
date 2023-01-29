@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -591,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -791,11 +791,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Where the library will be installed to"
+					"value" : "Install path prefix, prepended onto install directories."
 				}
 			],
 			"type" : "PATH",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/install"
+			"value" : "/usr/local"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -1478,6 +1478,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "VCPKG_BOOTSTRAP_OPTIONS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Additional options to bootstrap vcpkg"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
 			"name" : "VCPKG_INSTALLED_DIR",
 			"properties" : 
 			[
@@ -1487,7 +1499,19 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/bsodium/Apps/vcpkg/installed"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/vcpkg_installed"
+		},
+		{
+			"name" : "VCPKG_INSTALL_OPTIONS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Additional install options to pass to vcpkg"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
 		},
 		{
 			"name" : "VCPKG_MANIFEST_DIR",
@@ -1499,7 +1523,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : ""
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client"
 		},
 		{
 			"name" : "VCPKG_MANIFEST_INSTALL",
@@ -1510,8 +1534,8 @@
 					"value" : "Install the dependencies listed in your manifest:\n    If this is off, you will have to manually install your dependencies.\n    See https://github.com/microsoft/vcpkg/tree/master/docs/specifications/manifests.md for more info.\n"
 				}
 			],
-			"type" : "INTERNAL",
-			"value" : "OFF"
+			"type" : "BOOL",
+			"value" : "ON"
 		},
 		{
 			"name" : "VCPKG_MANIFEST_MODE",
@@ -1523,7 +1547,31 @@
 				}
 			],
 			"type" : "BOOL",
-			"value" : "OFF"
+			"value" : "ON"
+		},
+		{
+			"name" : "VCPKG_OVERLAY_PORTS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Overlay ports to use for vcpkg install in manifest mode"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
+			"name" : "VCPKG_OVERLAY_TRIPLETS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Overlay triplets to use for vcpkg install in manifest mode"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
 		},
 		{
 			"name" : "VCPKG_PREFER_SYSTEM_LIBS",
@@ -1611,7 +1659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "Z_VCPKG_CL",
@@ -1659,7 +1707,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/bsodium/Apps/vcpkg/installed"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/vcpkg_installed"
 		},
 		{
 			"name" : "client_BINARY_DIR",
@@ -1671,7 +1719,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build"
 		},
 		{
 			"name" : "client_SOURCE_DIR",
@@ -1683,7 +1731,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client"
 		},
 		{
 			"name" : "clifford_BINARY_DIR",
@@ -1695,7 +1743,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford"
 		},
 		{
 			"name" : "clifford_SOURCE_DIR",
@@ -1707,7 +1755,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford"
+			"value" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford"
 		}
 	],
 	"kind" : "cache",

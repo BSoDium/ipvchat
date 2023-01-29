@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+CMAKE_SOURCE_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+CMAKE_BINARY_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/client.dir/depend.make
@@ -78,48 +78,62 @@ include CMakeFiles/client.dir/flags.make
 
 CMakeFiles/client.dir/src/client.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/client.cpp.o: ../src/client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client.cpp.o -c "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client.cpp.o -c /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/client.cpp
 
 CMakeFiles/client.dir/src/client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp" > CMakeFiles/client.dir/src/client.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/client.cpp > CMakeFiles/client.dir/src/client.cpp.i
 
 CMakeFiles/client.dir/src/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp" -o CMakeFiles/client.dir/src/client.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/client.cpp -o CMakeFiles/client.dir/src/client.cpp.s
 
 CMakeFiles/client.dir/src/clientConsole.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/clientConsole.cpp.o: ../src/clientConsole.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/clientConsole.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/clientConsole.cpp.o -c "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/clientConsole.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/clientConsole.cpp.o -c /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/clientConsole.cpp
 
 CMakeFiles/client.dir/src/clientConsole.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/clientConsole.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp" > CMakeFiles/client.dir/src/clientConsole.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/clientConsole.cpp > CMakeFiles/client.dir/src/clientConsole.cpp.i
 
 CMakeFiles/client.dir/src/clientConsole.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/clientConsole.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp" -o CMakeFiles/client.dir/src/clientConsole.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/clientConsole.cpp -o CMakeFiles/client.dir/src/clientConsole.cpp.s
 
 CMakeFiles/client.dir/src/main.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/main.cpp.o -c "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/main.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/main.cpp.o -c /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/main.cpp
 
 CMakeFiles/client.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp" > CMakeFiles/client.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/main.cpp > CMakeFiles/client.dir/src/main.cpp.i
 
 CMakeFiles/client.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp" -o CMakeFiles/client.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/main.cpp -o CMakeFiles/client.dir/src/main.cpp.s
+
+CMakeFiles/client.dir/src/request.cpp.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/request.cpp.o: ../src/request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/src/request.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/request.cpp.o -c /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/request.cpp
+
+CMakeFiles/client.dir/src/request.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/request.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/request.cpp > CMakeFiles/client.dir/src/request.cpp.i
+
+CMakeFiles/client.dir/src/request.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/request.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/request.cpp -o CMakeFiles/client.dir/src/request.cpp.s
 
 # Object files for target client
 client_OBJECTS = \
 "CMakeFiles/client.dir/src/client.cpp.o" \
 "CMakeFiles/client.dir/src/clientConsole.cpp.o" \
-"CMakeFiles/client.dir/src/main.cpp.o"
+"CMakeFiles/client.dir/src/main.cpp.o" \
+"CMakeFiles/client.dir/src/request.cpp.o"
 
 # External object files for target client
 client_EXTERNAL_OBJECTS =
@@ -127,10 +141,11 @@ client_EXTERNAL_OBJECTS =
 client: CMakeFiles/client.dir/src/client.cpp.o
 client: CMakeFiles/client.dir/src/clientConsole.cpp.o
 client: CMakeFiles/client.dir/src/main.cpp.o
+client: CMakeFiles/client.dir/src/request.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: libs/clifford/libcliffordd.a
 client: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +158,6 @@ CMakeFiles/client.dir/clean:
 .PHONY : CMakeFiles/client.dir/clean
 
 CMakeFiles/client.dir/depend:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/client.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/client.dir/depend
 

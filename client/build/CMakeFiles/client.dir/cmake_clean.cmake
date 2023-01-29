@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/client.dir/src/client.cpp.o"
   "CMakeFiles/client.dir/src/clientConsole.cpp.o"
   "CMakeFiles/client.dir/src/main.cpp.o"
+  "CMakeFiles/client.dir/src/request.cpp.o"
   "client"
   "client.pdb"
 )

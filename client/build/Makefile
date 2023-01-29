@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+CMAKE_SOURCE_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+CMAKE_BINARY_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -145,9 +145,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -172,7 +172,7 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -283,6 +283,33 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/request.o: src/request.cpp.o
+
+.PHONY : src/request.o
+
+# target to build an object file
+src/request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/request.cpp.o
+.PHONY : src/request.cpp.o
+
+src/request.i: src/request.cpp.i
+
+.PHONY : src/request.i
+
+# target to preprocess a source file
+src/request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/request.cpp.i
+.PHONY : src/request.cpp.i
+
+src/request.s: src/request.cpp.s
+
+.PHONY : src/request.s
+
+# target to generate assembly for a file
+src/request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/request.cpp.s
+.PHONY : src/request.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,6 +333,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/request.o"
+	@echo "... src/request.i"
+	@echo "... src/request.s"
 .PHONY : help
 
 
@@ -317,7 +347,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

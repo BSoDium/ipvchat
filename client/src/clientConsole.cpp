@@ -27,7 +27,7 @@ ClientConsole::ClientConsole(): CLI("ClientConsole", "A command line interface f
       _handler.setPortNumber(portNumber);
       if (_handler.connect()) {
         std::cout << "Connection successful" << std::endl;
-        cli->setPrompt("Remote@" + ipAddress + ":" + std::to_string(portNumber));
+        cli->setPrompt(ipAddress + ":" + std::to_string(portNumber));
       } else {
         std::cout << "Connection failed" << std::endl;
       }
@@ -53,15 +53,33 @@ ClientConsole::ClientConsole(): CLI("ClientConsole", "A command line interface f
     }
   });
 
-  _addCommand("send", "Send message to server", [&](CLI *cli, std::vector<std::string> args) {
+  _addCommand("login", "Login to server", [&](CLI *cli, std::vector<std::string> args) {
     try {
-      if (!_handler.isConnected()) {
-        cli->error("Not connected to server");
-        return;
+      if (_handler.isConnected()) {
+        _userId = args.at(0);
+        cli->setPrompt(_userId + "@" + _handler.getIpAddress() + ":" + std::to_string(_handler.getPortNumber()));
+      } else {
+        std::cout << "Not connected to server" << std::endl;
       }
-      std::string message = args.at(0);
-      std::string response = _handler.send(message);
-      std::cout << "Response: " << response << std::endl;
+    } catch (std::exception &e) {
+      cli->error("Invalid arguments");
+    }
+  });
+
+  _addCommand("join", "Join a channel", [&](CLI *cli, std::vector<std::string> args) {
+    try {
+      if (_handler.isConnected()) {
+        if (_userId != "") {
+          std::string channel = args.at(0);
+          cli->setPrompt(_userId + "@" + channel + "@" + _handler.getIpAddress() + ":" + std::to_string(_handler.getPortNumber()));
+          join(channel);
+          cli->setPrompt(_userId + "@" + _handler.getIpAddress() + ":" + std::to_string(_handler.getPortNumber()));
+        } else {
+          std::cout << "Not logged in" << std::endl;
+        }
+      } else {
+        std::cout << "Not connected to server" << std::endl;
+      }
     } catch (std::exception &e) {
       cli->error("Invalid arguments");
     }
@@ -74,4 +92,46 @@ void ClientConsole::exit()
     _handler.disconnect();
   }
   CLI::exit();
+}
+
+void ClientConsole::join(std::string channel)
+{
+  bool joined = true;
+  
+  // Create a thread to receive messages from the server
+  std::thread receiveThread([&]() {
+    while (joined) {
+      Request request = _handler.receive();
+      std::string action = request.getAction();
+      auto payload = request.getArgs();
+      if (action == "message" && payload["user_id"] != _userId && payload["channel_id"] == channel) {
+        std::cout << payload["user_id"] << ": " << payload["message"] << std::endl;
+      } else if (action == "error") {
+        std::cout << "Error: " << payload["message"] << std::endl;
+      } else if (action == "info") {
+        std::cout << "Info: " << payload["message"] << std::endl;
+      }
+    }
+  });
+
+  // allow the user to type messages into the console, if the message is /exit, leave the channel
+  std::string message = "";
+  do {
+    std::getline(std::cin, message);
+    if (message != "") {
+      Request request = Request("send", {
+        {"channel_id", channel},
+        {"user_id", _userId},
+        {"message", message}
+      });
+      _handler.send(request);
+    }
+  } while (message != "/exit" && joined);
+
+  // kill the receive thread
+  joined = false;
+
+  // wait for the receive thread to finish
+  receiveThread.join();
+  
 }

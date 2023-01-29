@@ -21,10 +21,12 @@ void Server::connectionHandler(int sock)
   int client_port = ntohs(client_addr.sin_port);
   std::cout << "Client connected from " << client_ip << ":" << client_port << std::endl;
 
+  // Add the client to the list
   _clients.push_back(Client{std::to_string(_clients.size()), client_ip, client_port, sock});
   
   keepAlive(sock);
 
+  // Remove the client from the list
   _clients.erase(std::remove_if(_clients.begin(), _clients.end(), [sock](Client client) {
     return client.socket == sock;
   }), _clients.end());
@@ -38,7 +40,7 @@ void Server::keepAlive(int sock)
   char buf[BUF_SIZE];
   while (true)
   {
-    int len = recv(sock, buf, BUF_SIZE, 0);
+    int len = ::recv(sock, buf, BUF_SIZE, 0);
     if (len < 0)
     {
       std::cerr << "Failed to receive data" << std::endl;
@@ -48,42 +50,35 @@ void Server::keepAlive(int sock)
     {
       break;
     }
-    std::string request(buf, len);
+    std::string rawRequest(buf, len);
 
     // Parse the command and arguments
-    std::string command;
-    args_t args;
+    Request request(rawRequest);
+    
+    std::cout << "Received request: " << request.serialize() << std::endl;
 
-    std::istringstream iss(request);
-    std::string token;
-    while (std::getline(iss, token, ' '))
-    {
-      if (command.empty())
-      {
-        command = token;
-      }
-      else
-      {
-        args.push_back(token);
-      }
-    }
-
-    std::cout << "Received request: " << command << std::endl;
-
-    std::string response = "Invalid command";
     for (auto commandOption: _commands) {
-      if (commandOption.name == command) {
-        response = commandOption.command(*this, args);
-        send(sock, response.c_str(), response.length(), 0);
+      if (commandOption.name == request.getAction()) {
+        commandOption.command(request.getArgs());
         break;
       }
     }
 
     // Clear the buffer
     std::memset(buf, 0, BUF_SIZE);
+  }
+}
 
-    // Send the response
-    send(sock, response.c_str(), response.length(), 0);
+void Server::notifyClients(Request request)
+{
+    for (auto client: _clients)
+  {
+    std::string rawRequest = request.serialize();
+    if (::send(client.socket, rawRequest.c_str(), rawRequest.size(), ::MSG_NOSIGNAL) < 0)
+    {
+      std::cerr << "Failed to send data" << std::endl;
+      continue;
+    }
   }
 }
 

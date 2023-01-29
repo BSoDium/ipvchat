@@ -45,14 +45,14 @@ unset(_expectedTargets)
 add_library(core::clifford STATIC IMPORTED)
 
 set_target_properties(core::clifford PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/include"
 )
 
 # Import target "core::clifford" for configuration "Debug"
 set_property(TARGET core::clifford APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(core::clifford PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford/libcliffordd.a"
+  IMPORTED_LOCATION_DEBUG "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford/libcliffordd.a"
   )
 
 # This file does not depend on other imported targets which have

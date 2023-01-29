@@ -1,15 +1,5 @@
 #include "storage.hpp"
 
-Storage::Storage():
-  _channels({}),
-  _users({})
-{
-}
-
-Storage::~Storage()
-{
-}
-
 std::map<std::string, std::shared_ptr<Channel>> Storage::getChannels()
 {
   return _channels;
@@ -20,7 +10,7 @@ std::map<std::string, std::string> Storage::getUsers()
   return _users;
 }
 
-std::shared_ptr<Channel> getChannel(std::string channel_id)
+std::shared_ptr<Channel> Storage::getChannel(std::string channel_id)
 {
   return _channels[channel_id];
 }

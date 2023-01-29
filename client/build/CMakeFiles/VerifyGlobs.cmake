@@ -3,44 +3,46 @@
 cmake_policy(SET CMP0009 NEW)
 
 # sources at libs/clifford/CMakeLists.txt:43 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/*.cpp")
 set(OLD_GLOB
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/clifford.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # sources at libs/clifford/CMakeLists.txt:43 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/*.hpp")
 set(OLD_GLOB
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/utils.hpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/utils.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # sources at CMakeLists.txt:15 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/*.cpp")
 set(OLD_GLOB
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.cpp"
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.cpp"
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/main.cpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/client.cpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/clientConsole.cpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/main.cpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/request.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # sources at CMakeLists.txt:15 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/*.hpp")
 set(OLD_GLOB
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/client.hpp"
-  "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/src/clientConsole.hpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/client.hpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/clientConsole.hpp"
+  "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/src/request.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/cmake.verify_globs")
 endif()

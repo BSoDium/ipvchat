@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include/clifford.hpp
+/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/include/clifford.hpp
 iostream
 -
 sstream
@@ -20,13 +20,13 @@ vector
 optional
 -
 
-/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp
+/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/clifford.cpp
 ../include/clifford.hpp
-/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/include/clifford.hpp
+/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/include/clifford.hpp
 utils.hpp
-/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/utils.hpp
+/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/utils.hpp
 
-/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/utils.hpp
+/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/utils.hpp
 string
 -
 vector

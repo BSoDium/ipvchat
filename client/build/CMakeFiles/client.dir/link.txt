@@ -1,1 +1,1 @@
-/usr/bin/g++  -fopenmp -g CMakeFiles/client.dir/src/client.cpp.o CMakeFiles/client.dir/src/clientConsole.cpp.o CMakeFiles/client.dir/src/main.cpp.o -o client  libs/clifford/libcliffordd.a 
+/usr/bin/g++  -fopenmp -g CMakeFiles/client.dir/src/client.cpp.o CMakeFiles/client.dir/src/clientConsole.cpp.o CMakeFiles/client.dir/src/main.cpp.o CMakeFiles/client.dir/src/request.cpp.o -o client  libs/clifford/libcliffordd.a 

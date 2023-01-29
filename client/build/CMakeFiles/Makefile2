@@ -63,10 +63,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+CMAKE_SOURCE_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+CMAKE_BINARY_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -131,14 +131,14 @@ libs/clifford/clean: libs/clifford/CMakeFiles/clifford.dir/clean
 CMakeFiles/client.dir/all: libs/clifford/CMakeFiles/clifford.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=1,2,3,4 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target client"
 .PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 0
 .PHONY : CMakeFiles/client.dir/rule
 
 # Convenience name for target.
@@ -158,14 +158,14 @@ CMakeFiles/client.dir/clean:
 libs/clifford/CMakeFiles/clifford.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs/clifford/CMakeFiles/clifford.dir/build.make libs/clifford/CMakeFiles/clifford.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/clifford/CMakeFiles/clifford.dir/build.make libs/clifford/CMakeFiles/clifford.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=5,6 "Built target clifford"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=6,7 "Built target clifford"
 .PHONY : libs/clifford/CMakeFiles/clifford.dir/all
 
 # Build rule for subdir invocation for target.
 libs/clifford/CMakeFiles/clifford.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clifford/CMakeFiles/clifford.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 0
 .PHONY : libs/clifford/CMakeFiles/clifford.dir/rule
 
 # Convenience name for target.
@@ -185,7 +185,7 @@ libs/clifford/CMakeFiles/clifford.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+CMAKE_SOURCE_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+CMAKE_BINARY_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -145,14 +145,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs//CMakeFiles/progress.marks"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" 0
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs//CMakeFiles/progress.marks
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,18 +162,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -P "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/VerifyGlobs.cmake"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -P /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/VerifyGlobs.cmake
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -199,7 +199,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -P "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles/VerifyGlobs.cmake"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -P /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles/VerifyGlobs.cmake
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

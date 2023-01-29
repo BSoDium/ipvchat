@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+CMAKE_SOURCE_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build"
+CMAKE_BINARY_DIR = /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build
 
 # Include any dependencies generated for this target.
 include libs/clifford/CMakeFiles/clifford.dir/depend.make
@@ -78,16 +78,16 @@ include libs/clifford/CMakeFiles/clifford.dir/flags.make
 
 libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.o: libs/clifford/CMakeFiles/clifford.dir/flags.make
 libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.o: ../libs/clifford/src/clifford.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.o"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clifford.dir/src/clifford.cpp.o -c "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.o"
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clifford.dir/src/clifford.cpp.o -c /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/clifford.cpp
 
 libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clifford.dir/src/clifford.cpp.i"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp" > CMakeFiles/clifford.dir/src/clifford.cpp.i
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/clifford.cpp > CMakeFiles/clifford.dir/src/clifford.cpp.i
 
 libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clifford.dir/src/clifford.cpp.s"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford/src/clifford.cpp" -o CMakeFiles/clifford.dir/src/clifford.cpp.s
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford/src/clifford.cpp -o CMakeFiles/clifford.dir/src/clifford.cpp.s
 
 # Object files for target clifford
 clifford_OBJECTS = \
@@ -99,9 +99,9 @@ clifford_EXTERNAL_OBJECTS =
 libs/clifford/libcliffordd.a: libs/clifford/CMakeFiles/clifford.dir/src/clifford.cpp.o
 libs/clifford/libcliffordd.a: libs/clifford/CMakeFiles/clifford.dir/build.make
 libs/clifford/libcliffordd.a: libs/clifford/CMakeFiles/clifford.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcliffordd.a"
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && $(CMAKE_COMMAND) -P CMakeFiles/clifford.dir/cmake_clean_target.cmake
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clifford.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcliffordd.a"
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && $(CMAKE_COMMAND) -P CMakeFiles/clifford.dir/cmake_clean_target.cmake
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clifford.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libs/clifford/CMakeFiles/clifford.dir/build: libs/clifford/libcliffordd.a
@@ -109,10 +109,10 @@ libs/clifford/CMakeFiles/clifford.dir/build: libs/clifford/libcliffordd.a
 .PHONY : libs/clifford/CMakeFiles/clifford.dir/build
 
 libs/clifford/CMakeFiles/clifford.dir/clean:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" && $(CMAKE_COMMAND) -P CMakeFiles/clifford.dir/cmake_clean.cmake
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford && $(CMAKE_COMMAND) -P CMakeFiles/clifford.dir/cmake_clean.cmake
 .PHONY : libs/clifford/CMakeFiles/clifford.dir/clean
 
 libs/clifford/CMakeFiles/clifford.dir/depend:
-	cd "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs/clifford" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford" "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford/CMakeFiles/clifford.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs/clifford /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford/CMakeFiles/clifford.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/clifford/CMakeFiles/clifford.dir/depend
 

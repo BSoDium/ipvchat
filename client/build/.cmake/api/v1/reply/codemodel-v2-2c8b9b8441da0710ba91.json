@@ -90,14 +90,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "client::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-client-Debug-72ad7ce06fd1c92a6489.json",
+					"jsonFile" : "target-client-Debug-eb34a48bfac5d7573059.json",
 					"name" : "client",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "clifford::@f9c667cb6245232d70ee",
-					"jsonFile" : "target-clifford-Debug-c5500859c73e3406cda6.json",
+					"jsonFile" : "target-clifford-Debug-f32bb60bb25140d20bad.json",
 					"name" : "clifford",
 					"projectIndex" : 1
 				}
@@ -107,8 +107,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build",
-		"source" : "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client"
+		"build" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build",
+		"source" : "/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client"
 	},
 	"version" : 
 	{

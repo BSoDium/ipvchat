@@ -1,12 +1,12 @@
 #ifndef STORAGE_HPP
 #define STORAGE_HPP
 
-#include <string>
-#include <map>
-#include <ctime>
-#include <vector>
 #include <iostream>
 #include <memory>
+#include <string>
+#include <vector>
+#include <ctime>
+#include <map>
 
 #include "channel.hpp"
 
@@ -16,17 +16,23 @@
 typedef std::map<std::string, std::shared_ptr<Channel>> channels_t;
 
 /**
- * Storage class
+ * Storage class, stores channels and users.
 */
 class Storage
 {
 private:
-  channels_t _channels;
-  users_t _users;
+  channels_t _channels = {
+    {"general", std::make_shared<Channel>("general", _users)}
+  };
+  users_t _users = {
+    {"J0hn", "John"},
+    {"Jn", "Jane"},
+    {"j4ckieChan", "Jack"}
+  };
 
 public:
-  Storage();
-  ~Storage();
+  Storage() = default;
+  ~Storage() = default;
 
   channels_t getChannels();
   users_t getUsers();

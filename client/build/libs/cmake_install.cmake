@@ -1,8 +1,8 @@
-# Install script for directory: /mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/libs
+# Install script for directory: /mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/libs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/install")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/g/My Drive/Work/AAU/Offensive security lab/Network security/Lab session 3/client/build/libs/clifford/cmake_install.cmake")
+  include("/mnt/c/Users/bsodium/Code/GitHub/ipvchat/client/build/libs/clifford/cmake_install.cmake")
 
 endif()
 
