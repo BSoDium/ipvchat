@@ -34,7 +34,7 @@ void Server::connectionHandler(int sock)
   close(sock);
 }
 
-void Server::keepAlive(Client &client)
+void Server::keepAlive(Client client)
 {
   int sock = client.socket;
   while (true)
@@ -123,6 +123,18 @@ void Server::run()
     std::thread client_thread(&Server::connectionHandler, this, client_sock);
     client_thread.detach();
   }
+}
+
+Client &Server::getClient(int socket)
+{
+  for (auto &client: _clients)
+  {
+    if (client.socket == socket)
+    {
+      return client;
+    }
+  }
+  throw std::runtime_error("Client not found");
 }
 
 Storage &Server::storage()

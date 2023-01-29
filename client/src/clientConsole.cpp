@@ -134,18 +134,18 @@ void ClientConsole::join(std::string channel)
       _handler.send(packet);
     }
   } while (message != "/exit" && joined);
+  
+  // Notify the other users in the channel that we left
+  _handler.send(Packet("send", {
+    {"channel_id", channel},
+    {"message", "left the channel"}
+  }));
 
   // kill the receive thread
   joined = false;
 
   // wait for the receive thread to finish
   receiveThread.join();
-
-  // Notify the other users in the channel that we left
-  _handler.send(Packet("send", {
-    {"channel_id", channel},
-    {"message", "left the channel"}
-  }));
 }
 
 void ClientConsole::login(std::string userId)
