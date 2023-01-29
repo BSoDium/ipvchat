@@ -56,7 +56,9 @@ ClientConsole::ClientConsole(): CLI("ClientConsole", "A command line interface f
   _addCommand("login", "Login to server", [&](CLI *cli, std::vector<std::string> args) {
     try {
       if (_handler.isConnected()) {
-        _userId = args.at(0);
+        std::string userId = args.at(0);
+        login(userId);
+        _userId = userId;
         cli->setPrompt(_userId + "@" + _handler.getIpAddress() + ":" + std::to_string(_handler.getPortNumber()));
       } else {
         std::cout << "Not connected to server" << std::endl;
@@ -97,19 +99,25 @@ void ClientConsole::exit()
 void ClientConsole::join(std::string channel)
 {
   bool joined = true;
+
+  // Notify the other users in the channel that we joined
+  _handler.send(Packet("send", {
+    {"channel_id", channel},
+    {"message", "joined the channel"}
+  }));
   
   // Create a thread to receive messages from the server
   std::thread receiveThread([&]() {
     while (joined) {
-      Request request = _handler.receive();
-      std::string action = request.getAction();
-      auto payload = request.getArgs();
-      if (action == "message" && payload["user_id"] != _userId && payload["channel_id"] == channel) {
-        std::cout << payload["user_id"] << ": " << payload["message"] << std::endl;
-      } else if (action == "error") {
-        std::cout << "Error: " << payload["message"] << std::endl;
-      } else if (action == "info") {
-        std::cout << "Info: " << payload["message"] << std::endl;
+      Packet packet = _handler.receive();
+      std::string action = packet.getAction();
+      auto payload = packet.getArgs();
+      if (action == "chat" && payload["channel_id"] == channel && payload["user_id"] != _userId) {
+        std::cout << GREEN(payload["user_id"]) << ": " << payload["message"] << std::endl;
+      } else if (action == "response") {
+        std::string status = payload["status"];
+        std::string message = payload["message"];
+        std::cout << BLUE("Response: " << status << " " << message) << std::endl;
       }
     }
   });
@@ -118,13 +126,12 @@ void ClientConsole::join(std::string channel)
   std::string message = "";
   do {
     std::getline(std::cin, message);
-    if (message != "") {
-      Request request = Request("send", {
+    if (message != "" && message != "/exit") {
+      Packet packet = Packet("send", {
         {"channel_id", channel},
-        {"user_id", _userId},
         {"message", message}
       });
-      _handler.send(request);
+      _handler.send(packet);
     }
   } while (message != "/exit" && joined);
 
@@ -133,5 +140,31 @@ void ClientConsole::join(std::string channel)
 
   // wait for the receive thread to finish
   receiveThread.join();
-  
+
+  // Notify the other users in the channel that we left
+  _handler.send(Packet("send", {
+    {"channel_id", channel},
+    {"message", "left the channel"}
+  }));
+}
+
+void ClientConsole::login(std::string userId)
+{
+  Packet packet = Packet("login", {
+    {"user_id", userId}
+  });
+  _handler.send(packet);
+
+  Packet response = _handler.receive();
+  std::string action = response.getAction();
+  auto payload = response.getArgs();
+
+  if (action == "response") {
+    if (payload["status"] == "success") {
+      std::cout << "Logged in as " << userId << std::endl;
+    } else {
+      std::cout << "Failed to login as " << userId << std::endl;
+      std::cout << "Message: " << payload["message"] << std::endl;
+    }
+  }
 }

@@ -1,10 +1,3 @@
-#include <iostream>
-#include <string>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <unistd.h>
-#include <thread>
-
 #include "client.hpp"
 
 Client::Client(std::string ipAddress, int portNumber)
@@ -54,15 +47,6 @@ bool Client::connect()
   return ::connect(_socket, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) == 0;
 }
 
-void Client::send(Request request)
-{
-  // Send the message to the server
-  std::string message = request.serialize();
-  if (::send(_socket, message.c_str(), message.size(), ::MSG_NOSIGNAL) < 0) {
-    std::cerr << "Client failed to send message" << std::endl;
-  }
-}
-
 bool Client::disconnect()
 {
   // Close the socket
@@ -74,19 +58,12 @@ bool Client::isConnected()
   return _socket > 0;
 }
 
-Request Client::receive()
+void Client::send(Packet packet)
 {
-  // Receive a response from the server (blocking)
-  char buf[BUF_SIZE];
-  int bytesReceived = ::recv(_socket, buf, BUF_SIZE, 0);
-  if (bytesReceived < 0) {
-    std::cerr << "Client failed to receive message" << std::endl;
-    return Request("error", {
-      {"origin", "Client"},
-      {"message", "Client failed to receive message"}
-    });
-  }
+  packet.send(_socket);
+}
 
-  // Return the response
-  return Request(std::string(buf, bytesReceived));
+Packet Client::receive()
+{
+  return Packet(_socket);
 }

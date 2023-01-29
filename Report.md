@@ -11,10 +11,11 @@ Start the client by running `{projectRoot}/client/build/client` with no argument
 Type in `commands` to get a list of all available commands and their description. When it comes to our use-case, we won't need anything other than the following four directives:
 
 ```cpp
-test
-connect
-send
-disconnect
+test - Test connection to server
+connect - Connect to server
+disconnect - Disconnect from server
+login - Login to server
+join - Join a channel
 ```
 
 Here are some examples of usage:
@@ -22,8 +23,8 @@ Here are some examples of usage:
 ```cpp
 test 127.0.0.1 8080 // test <ip> <port>
 connect 127.0.0.1 8080 // connect <ip> <port>
-send one-word-message // if the message doesn't contain any spaces
-send "multi word message or command"
+login user // login <username>
+join general // join <channel>
 disconnect // disconnect from the server you are currently connected to 
 ```
 
@@ -41,25 +42,16 @@ In case of failure, try another port, it's often caused by another application a
 
 ### Requests
 
-Currently, the server supports three command requests:
+Currently, the server does not support creating new channels, or users on the fly. However, this would be pretty easy to implement with the current architecture.
 
-```cpp
-std::vector<Command> _commands = {
-    {"erato", runEratosthenes},
-    {"matrix", runMatrixMult},
-    {"sort", runBubbleSort}
-  };
-```
-
-Use the keyword on the left, followed by the correct number of arguments to get the result of the computation as a response.
-Here are again some examples:
+Here is again an example of usage:
 
 ```
-Remote@127.0.0.1:8080> send "sort 1,2,1,9,4"
-Response: [1, 1, 2, 4, 9]
-```
-
-```
-Remote@127.0.0.1:8080> send "erato 10"
-Response: [2, 3, 5, 7]
+ClientConsole> connect 127.0.0.1 8080
+Connection successful
+127.0.0.1:8080> login J0hn
+Logged in as J0hn
+J0hn@127.0.0.1:8080> join general
+J0hn: Hey
+Response: success OK
 ```

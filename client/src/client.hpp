@@ -1,11 +1,13 @@
 #ifndef CLIENT_HPP
 #define CLIENT_HPP
 
+#include <iostream>
+#include <string>
+#include <unistd.h>
+#include <thread>
 #include <string>
 
-#include "request.hpp"
-
-const int BUF_SIZE = 1024;
+#include "packet.hpp"
 
 class Client
 {
@@ -27,8 +29,8 @@ public:
   bool disconnect();
   bool isConnected();
 
-  void send(Request request);
-  Request receive();
+  void send(Packet packet);
+  Packet receive();
 };
 
 #endif // CLIENT_HPP

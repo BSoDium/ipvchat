@@ -1,24 +1,11 @@
 #include "channel.hpp"
 
-Channel::Channel(std::string channel_id, users_t& users):
+Channel::Channel(std::string channel_id, users_t users):
   _channel_id(channel_id),
   _messages({}),
   _users(users)
 {}
 
-Channel& Channel::operator=(const Channel& other)
-{
-  // Check for self-assignment
-  if (this == &other) {
-      return *this;
-  }
-
-  _channel_id = other._channel_id;
-  _messages = other._messages;
-  _users = other._users;
-
-  return *this;
-}
 
 Channel::~Channel()
 {
@@ -32,6 +19,11 @@ std::string Channel::getChannelId()
 std::map<timestamp_t, Message> Channel::getMessages()
 {
   return _messages;
+}
+
+users_t Channel::getUsers()
+{
+  return _users;
 }
 
 void Channel::addMessage(std::string user_id, std::string message)

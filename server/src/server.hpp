@@ -17,13 +17,12 @@
 #include <cstring>
 
 #include "storage.hpp"
-#include "request.hpp"
-
-const int BUF_SIZE = 1024;
+#include "packet.hpp"
 
 class Server;
+class Client;
 
-typedef std::function<void(args_t)> command_t;
+typedef std::function<Packet(Client&, args_t)> command_t;
 
 struct Command
 {
@@ -33,10 +32,15 @@ struct Command
 
 struct Client
 {
-  std::string id;
   std::string ip;
   int port;
   int socket;
+  std::string user_id;
+
+  bool operator==(const Client& other) const
+  {
+    return ip == other.ip && port == other.port && socket == other.socket;
+  }
 };
 
 /**
@@ -53,40 +57,61 @@ private:
   int _socket;
   
   std::vector<Command> _commands = {
-    {"send", [this](args_t args) {
+    {"login", [this](Client &source, args_t args) {
+      std::string user_id = args["user_id"];
+      
+      Packet response = SUCCESS("OK");
+      
+      if (_storage.getUsers().find(user_id) == _storage.getUsers().end())
+      {
+        response = ERROR("User not found");
+        return response;
+      }
+
+      source.user_id = user_id;
+      return response;
+    }},
+    {"send", [this](Client &source, args_t args) {
         std::string channel_id = args["channel_id"];
-        std::string user_id = args["user_id"];
         std::string message = args["message"];
+        std::string user_id = source.user_id;
+
+        Packet response = SUCCESS("OK");
 
         auto channel = _storage.getChannel(channel_id);
-        auto user = _storage.getUserName(user_id);
         if (channel == nullptr)
         {
-          return "ERROR: Channel not found";
+          response = ERROR("Channel not found");
+          return response;
         }
-        if (user == "")
+        if (channel->getUsers().find(user_id) == channel->getUsers().end())
         {
-          return "ERROR: User not found";
+          response = ERROR("User not in channel");
+          return response;
         }
 
         channel->addMessage(user_id, message);
 
-        Request request("message", {
+        Packet packet("chat", {
           {"channel_id", channel_id},
           {"user_id", user_id},
           {"message", message}
         });
 
-        notifyClients(request);
+        broadcast(packet, *channel);
+
+        return response;
       }
     },
 
   };
 
   void connectionHandler(int sock);
-  void keepAlive(int sock);
+  void keepAlive(Client &client);
 
-  void notifyClients(Request request);
+  void broadcast(Packet packet);
+  void broadcast(Packet packet, Channel channel);
+  void send(Client client, Packet packet);
 
 public:
   Server(std::string ipAddress, int portNumber);

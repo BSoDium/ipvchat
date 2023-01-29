@@ -21,13 +21,14 @@ typedef std::map<std::string, std::shared_ptr<Channel>> channels_t;
 class Storage
 {
 private:
-  channels_t _channels = {
-    {"general", std::make_shared<Channel>("general", _users)}
-  };
   users_t _users = {
     {"J0hn", "John"},
     {"Jn", "Jane"},
     {"j4ckieChan", "Jack"}
+  };
+  channels_t _channels = {
+    {"general", std::make_shared<Channel>("general", _users)},
+    {"J0hn-Jn", std::make_shared<Channel>("J0hn-Jn", _users)},
   };
 
 public:

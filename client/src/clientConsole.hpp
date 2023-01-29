@@ -6,7 +6,7 @@
 #include <termios.h>
 
 #include "client.hpp"
-#include "request.hpp"
+#include "packet.hpp"
 
 /**
  * @brief A command line interface for communicating with a chat server.
@@ -19,6 +19,7 @@ private:
 public:
   ClientConsole();
   void exit();
+  void login(std::string userId);
   void join(std::string channel);
 };
 

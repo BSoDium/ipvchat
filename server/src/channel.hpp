@@ -25,15 +25,15 @@ class Channel
 private:
   std::string _channel_id;
   std::map<timestamp_t, Message> _messages;
-  users_t& _users;
+  users_t _users;
 
 public:
   ~Channel();
-  Channel(std::string channel_id, users_t& users);
-  Channel& operator=(const Channel& other);
+  Channel(std::string channel_id, users_t users);
   
   std::string getChannelId();
   std::map<timestamp_t, Message> getMessages();
+  users_t getUsers();
 
   void addMessage(std::string user_id, std::string message);
   void addMessage(Message message);

@@ -22,64 +22,63 @@ void Server::connectionHandler(int sock)
   std::cout << "Client connected from " << client_ip << ":" << client_port << std::endl;
 
   // Add the client to the list
-  _clients.push_back(Client{std::to_string(_clients.size()), client_ip, client_port, sock});
+  Client client{client_ip, client_port, sock, ""};
+  _clients.push_back(client);
   
-  keepAlive(sock);
+  keepAlive(_clients.back());
 
   // Remove the client from the list
-  _clients.erase(std::remove_if(_clients.begin(), _clients.end(), [sock](Client client) {
-    return client.socket == sock;
-  }), _clients.end());
+  _clients.erase(std::remove(_clients.begin(), _clients.end(), client), _clients.end());
 
   std::cout << "Client " << client_ip << ":" << client_port << " disconnected" << std::endl;
   close(sock);
 }
 
-void Server::keepAlive(int sock)
+void Server::keepAlive(Client &client)
 {
-  char buf[BUF_SIZE];
+  int sock = client.socket;
   while (true)
   {
-    int len = ::recv(sock, buf, BUF_SIZE, 0);
-    if (len < 0)
-    {
-      std::cerr << "Failed to receive data" << std::endl;
-      break;
-    }
-    if (len == 0)
-    {
-      break;
-    }
-    std::string rawRequest(buf, len);
-
-    // Parse the command and arguments
-    Request request(rawRequest);
+    Packet packet(sock);
     
-    std::cout << "Received request: " << request.serialize() << std::endl;
+    std::cout << "Received packet: " << packet.serialize() << std::endl;
 
+    Packet response = Packet("response", {
+      {"status", "error"},
+      {"message", "Command not found"}
+    });
     for (auto commandOption: _commands) {
-      if (commandOption.name == request.getAction()) {
-        commandOption.command(request.getArgs());
+      if (commandOption.name == packet.getAction()) {
+        response = commandOption.command(client, packet.getArgs());
         break;
       }
     }
 
-    // Clear the buffer
-    std::memset(buf, 0, BUF_SIZE);
+    // Send the response
+    send(client, response);
   }
 }
 
-void Server::notifyClients(Request request)
+void Server::broadcast(Packet packet)
 {
-    for (auto client: _clients)
+  broadcast(packet, *_storage.getChannel("general"));
+}
+
+void Server::broadcast(Packet packet, Channel channel)
+{
+  users_t users = channel.getUsers();
+  for (auto client: _clients)
   {
-    std::string rawRequest = request.serialize();
-    if (::send(client.socket, rawRequest.c_str(), rawRequest.size(), ::MSG_NOSIGNAL) < 0)
+    if (users.find(client.user_id) != users.end())
     {
-      std::cerr << "Failed to send data" << std::endl;
-      continue;
+      send(client, packet);
     }
   }
+}
+
+void Server::send(Client client, Packet packet)
+{
+  packet.send(client.socket);
 }
 
 void Server::run()
