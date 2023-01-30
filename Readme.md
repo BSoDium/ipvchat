@@ -1,3 +1,5 @@
+# IpvChat
+
 ## Structure
 
 This project is split in two environments, and consequently two folders: client and server. Both environments are configured with Cmake, and will work out of the box on any linux distribution (windows and macOS untested) with an up-to-date Cmake installation.
