@@ -99,13 +99,24 @@ void ClientConsole::exit()
 void ClientConsole::join(std::string channel)
 {
   bool joined = true;
+  auto lastActivity = std::chrono::system_clock::now();
 
   // Notify the other users in the channel that we joined
   _handler.send(Packet("send", {
     {"channel_id", channel},
     {"message", "joined the channel"}
   }));
-  
+
+  // Create a thread to kill the connection if the idle timeout is reached
+  std::thread idleThread([&]() {
+    while (joined) {
+      auto now = std::chrono::system_clock::now();
+      if (std::chrono::duration_cast<std::chrono::seconds>(now - lastActivity).count() > 60) {
+        joined = false;
+      }
+    }
+  });
+
   // Create a thread to receive messages from the server
   std::thread receiveThread([&]() {
     while (joined) {
@@ -125,6 +136,7 @@ void ClientConsole::join(std::string channel)
   // allow the user to type messages into the console, if the message is /exit, leave the channel
   std::string message = "";
   do {
+    lastActivity = std::chrono::system_clock::now();
     std::getline(std::cin, message);
     if (message != "" && message != "/exit") {
       Packet packet = Packet("send", {

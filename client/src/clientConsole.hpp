@@ -8,6 +8,8 @@
 #include "client.hpp"
 #include "packet.hpp"
 
+#define IDLE_TIMEOUT 1 // minutes
+
 /**
  * @brief A command line interface for communicating with a chat server.
 */
