@@ -1,11 +1,11 @@
 #include "storage.hpp"
 
-std::map<std::string, std::shared_ptr<Channel>> Storage::getChannels()
+channels_t Storage::getChannels()
 {
   return _channels;
 }
 
-std::map<std::string, std::string> Storage::getUsers()
+users_t Storage::getUsers()
 {
   return _users;
 }
@@ -39,14 +39,31 @@ void Storage::removeChannel(std::string channel_id)
   _channels.erase(channel_id);
 }
 
-void Storage::addUser(std::string user_id, std::string user_name)
-{
-  _users[user_id] = user_name;
-}
-
 void Storage::addUser(std::string user_id)
 {
-  _users[user_id] = user_id;
+  addUser(user_id, user_id);
+}
+
+void Storage::addUser(std::string user_id, std::string user_name)
+{
+  // FIXME: remove this shitcode (updates the general channel with the new user)
+  auto general_channel = getChannel("general");
+  general_channel->addUser(user_id, user_name);
+  
+  // Create new private channels for the user and each existing user
+  for (auto user: _users)
+  {
+    users_t users = {
+      {user_id, user_name},
+      {user.first, user.second}
+    };
+    auto channel = std::make_shared<Channel>(user_id + "-" + user.first, users);
+    _channels[channel->getChannelId()] = channel;
+    
+    std::cout << "Created channel " << channel->getChannelId() << std::endl;
+  }
+  
+  _users[user_id] = user_name;
 }
 
 std::string Storage::addUser()

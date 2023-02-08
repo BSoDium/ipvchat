@@ -8,7 +8,7 @@
 #include "client.hpp"
 #include "packet.hpp"
 
-#define IDLE_TIMEOUT 1 // minutes
+#define IDLE_TIMEOUT 5 // minutes
 
 /**
  * @brief A command line interface for communicating with a chat server.
@@ -22,6 +22,8 @@ public:
   ClientConsole();
   void exit();
   void login(std::string userId);
+  void logout();
+  void list();
   void join(std::string channel);
 };
 

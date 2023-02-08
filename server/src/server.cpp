@@ -19,18 +19,21 @@ void Server::connectionHandler(int sock)
   getpeername(sock, reinterpret_cast<sockaddr *>(&client_addr), &client_addr_size);
   std::string client_ip = inet_ntoa(client_addr.sin_addr);
   int client_port = ntohs(client_addr.sin_port);
-  std::cout << "Client connected from " << client_ip << ":" << client_port << std::endl;
+  std::cout << "+ Client connected from " << client_ip << ":" << client_port << std::endl;
 
   // Add the client to the list
   Client client{client_ip, client_port, sock, ""};
   _clients.push_back(client);
   
-  keepAlive(_clients.back());
+  try {
+    keepAlive(_clients.back());
+  } catch (std::runtime_error e) {
+    std::cout << "- Client " << client_ip << ":" << client_port << " - " << e.what() << std::endl;
+  }
 
   // Remove the client from the list
   _clients.erase(std::remove(_clients.begin(), _clients.end(), client), _clients.end());
 
-  std::cout << "Client " << client_ip << ":" << client_port << " disconnected" << std::endl;
   close(sock);
 }
 
@@ -41,7 +44,7 @@ void Server::keepAlive(Client client)
   {
     Packet packet(sock);
     
-    std::cout << "Received packet: " << packet.serialize() << std::endl;
+    std::cout << "Received packet: " << packet.toString() << std::endl;
 
     Packet response = Packet("response", {
       {"status", "error"},
@@ -69,7 +72,7 @@ void Server::broadcast(Packet packet, Channel channel)
   users_t users = channel.getUsers();
   for (auto client: _clients)
   {
-    if (users.find(client.user_id) != users.end())
+    if (users.contains(client.user_id))
     {
       send(client, packet);
     }

@@ -19,6 +19,8 @@
 #include "storage.hpp"
 #include "packet.hpp"
 
+#define MAX_CLIENTS 4
+
 class Server;
 class Client;
 
@@ -61,12 +63,18 @@ private:
       std::string user_id = args["user_id"];
       
       Packet response = SUCCESS("OK");
-
-      // Check if the user exists
-      if (_storage.getUsers().find(user_id) == _storage.getUsers().end())
+      
+      int logged_in_clients = 0;
+      for (auto client: _clients)
       {
-        response = ERROR("User not found");
-        return response;
+        if (client.user_id != "")
+        {
+          logged_in_clients++;
+        }
+      }
+      if (logged_in_clients >= MAX_CLIENTS)
+      {
+        return ERROR("Too many clients logged in");
       }
 
       // Check if the user is already logged in
@@ -74,13 +82,35 @@ private:
       {
         if (client.user_id == user_id)
         {
-          response = ERROR("User already logged in");
-          return response;
+          return ERROR("User already logged in");
         }
+      }
+      
+      // Check if the user exists, if not create it
+      if (!_storage.getUsers().contains(user_id))
+      {
+        _storage.addUser(user_id);
+        response = SUCCESS("User created");
       }
 
       // Update the user_id of the client
       getClient(source.socket).user_id = user_id;
+      return response;
+    }},
+    {"list", [this](Client source, args_t args) {
+      Packet response = SUCCESS("OK");
+      std::string users = "";
+      std::string channels = "";
+      for (auto user: _storage.getUsers())
+      {
+        users += user.first + ",";
+      }
+      for (auto channel: _storage.getChannels())
+      {
+        channels += channel.first + ",";
+      }
+      response.setArg("users", users);
+      response.setArg("channels", channels);
       return response;
     }},
     {"send", [this](Client source, args_t args) {

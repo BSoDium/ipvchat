@@ -37,6 +37,7 @@ public:
 
   void addMessage(std::string user_id, std::string message);
   void addMessage(Message message);
+  void addUser(std::string user_id, std::string user_name);
 };
 
 

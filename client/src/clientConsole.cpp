@@ -68,6 +68,40 @@ ClientConsole::ClientConsole(): CLI("ClientConsole", "A command line interface f
     }
   });
 
+  _addCommand("logout", "Logout from server", [&](CLI *cli, std::vector<std::string> args) {
+    try {
+      if (_handler.isConnected()) {
+        if (_userId != "") {
+          logout();
+          _userId = "";
+          cli->resetPrompt();
+        } else {
+          std::cout << "Not logged in" << std::endl;
+        }
+      } else {
+        std::cout << "Not connected to server" << std::endl;
+      }
+    } catch (std::exception &e) {
+      cli->error("Invalid arguments");
+    }
+  });
+
+  _addCommand("list", "List channels and users", [&](CLI *cli, std::vector<std::string> args) {
+    try {
+      if (_handler.isConnected()) {
+        if (_userId != "") {
+          list();
+        } else {
+          std::cout << "Not logged in" << std::endl;
+        }
+      } else {
+        std::cout << "Not connected to server" << std::endl;
+      }
+    } catch (std::exception &e) {
+      cli->error("Invalid arguments");
+    }
+  });
+
   _addCommand("join", "Join a channel", [&](CLI *cli, std::vector<std::string> args) {
     try {
       if (_handler.isConnected()) {
@@ -112,8 +146,10 @@ void ClientConsole::join(std::string channel)
     while (joined) {
       auto now = std::chrono::system_clock::now();
       if (std::chrono::duration_cast<std::chrono::seconds>(now - lastActivity).count() > 60) {
+        std::cout << "Idle timeout reached, disconnecting" << std::endl;
         joined = false;
       }
+      sleep(1);
     }
   });
 
@@ -158,6 +194,7 @@ void ClientConsole::join(std::string channel)
 
   // wait for the receive thread to finish
   receiveThread.join();
+  idleThread.join();
 }
 
 void ClientConsole::login(std::string userId)
@@ -174,8 +211,34 @@ void ClientConsole::login(std::string userId)
   if (action == "response") {
     if (payload["status"] == "success") {
       std::cout << "Logged in as " << userId << std::endl;
+      std::cout << "Message: " << payload["message"] << std::endl;
     } else {
       std::cout << "Failed to login as " << userId << std::endl;
+      std::cout << "Message: " << payload["message"] << std::endl;
+    }
+  }
+}
+
+void ClientConsole::logout()
+{
+  login("");
+}
+
+void ClientConsole::list()
+{
+  Packet packet = Packet("list", {});
+  _handler.send(packet);
+
+  Packet response = _handler.receive();
+  std::string action = response.getAction();
+  auto payload = response.getArgs();
+
+  if (action == "response") {
+    if (payload["status"] == "success") {
+      std::cout << "Channels: " << payload["channels"] << std::endl;
+      std::cout << "Users: " << payload["users"] << std::endl;
+    } else {
+      std::cout << "Failed to run command list" << std::endl;
       std::cout << "Message: " << payload["message"] << std::endl;
     }
   }

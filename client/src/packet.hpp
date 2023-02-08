@@ -54,6 +54,8 @@ public:
   std::string serialize();
   std::string receive(int socket);
   void send(int socket);
+
+  std::string toString();
 };
 
 #endif // PACKET_HPP

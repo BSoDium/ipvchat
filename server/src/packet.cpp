@@ -41,7 +41,16 @@ std::string Packet::receive(int socket)
   while (size == -1)
   {
     char header[HEADER_SIZE];
-    ::recv(socket, header, HEADER_SIZE, 0);
+    int len = ::recv(socket, header, HEADER_SIZE, 0);
+
+    if (len == 0)
+    {
+      throw std::runtime_error("Connection closed");
+    } else if (len < 0)
+    {
+      throw std::runtime_error("Error receiving header, closing");
+    }
+    
     try
     {
       size = std::stoi(header);
@@ -68,4 +77,16 @@ void Packet::send(int socket)
 
   ::send(socket, header.c_str(), HEADER_SIZE, 0);
   ::send(socket, buffer.c_str(), buffer.length(), 0);
+}
+
+std::string Packet::toString()
+{
+  std::string buffer = _action + " {";
+  for (auto const& [key, val] : _args)
+  {
+    std::string suffix = val == _args.rbegin()->second ? "" : ", ";
+    buffer += key + "=" + val + suffix;
+  }
+  buffer += "}";
+  return buffer;
 }

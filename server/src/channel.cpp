@@ -18,7 +18,7 @@ std::string Channel::getChannelId()
 
 std::map<timestamp_t, Message> Channel::getMessages()
 {
-  return _messages;
+  return _messages; 
 }
 
 users_t Channel::getUsers()
@@ -36,4 +36,9 @@ void Channel::addMessage(std::string user_id, std::string message)
 void Channel::addMessage(Message message)
 {
   _messages[message.timestamp] = message;
+}
+
+void Channel::addUser(std::string user_id, std::string user_name)
+{
+  _users[user_id] = user_name;
 }

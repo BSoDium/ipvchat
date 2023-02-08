@@ -49,11 +49,17 @@ public:
   */
   Packet(int socket);
   
+  void setAction(std::string action) { _action = action; }
   std::string getAction() { return _action; }
+  void setArgs(std::map<std::string, std::string> args) { _args = args; }
   std::map<std::string, std::string> getArgs() { return _args; }
+  void setArg(std::string key, std::string value) { _args[key] = value; }
+  std::string getArg(std::string key) { return _args[key]; }
   std::string serialize();
   std::string receive(int socket);
   void send(int socket);
+
+  std::string toString();
 };
 
 #endif // PACKET_HPP
